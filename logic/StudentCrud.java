@@ -39,5 +39,9 @@ public class StudentCrud {
         int semester = Integer.parseInt(scanner.nextLine());
         System.out.println("promedio: ");
         double average = Double.parseDouble(scanner.nextLine());
+
+        if (management.insertObject(new Student(id, name, code, semester, average)))
+            System.out.println("Estudiante creado exitosamente");
+        else System.out.println("Ya existe un estudiante con ese ID.");
     }
 }
