@@ -2,9 +2,9 @@ public class Content{
     private int id;
     private String title;
     private String description;
-    private String type;
+    private ContentType type;
     private int durationHours;
-    public Content(int id, String title, String description, String type, int durationHours) {
+    public Content(int id, String title, String description, ContentType type, int durationHours) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -29,10 +29,10 @@ public class Content{
     public void setDescription(String description) {
         this.description = description;
     }
-    public String getType() {
+    public ContentType getType() {
         return type;
     }
-    public void setType(String type) {
+    public void setType(ContentType type) {
         this.type = type;
     }
     public int getDurationHours() {
