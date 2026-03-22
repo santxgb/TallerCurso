@@ -62,6 +62,7 @@ public class StudentCrud {
             return;
         }
         System.out.println("Este es el estudiante actual: " + actual);
+        System.out.println("En dado caso de que no desee cambiar el dato del estudiante presiona la tecla ENTER");
         System.out.println("Nombre a cambiar [ " + actual.getName() + " ]: ");
         String nombre = scanner.nextLine();
         if (nombre.isBlank()) nombre = actual.getName();
@@ -88,7 +89,10 @@ public class StudentCrud {
         System.out.println(management.deleteObjetct(scanner.nextLine()) ? "Estudiante Eliminado exitosamente" : "No se encontró el estudiante a eliminar");
     }
     private void listar() {
-        if (management.getListObject().isEmpty()) { System.out.println("Sin registros."); return; }
+        if (management.getListObject().isEmpty()) { 
+            System.out.println("Sin registros."); 
+            return; 
+        }
         management.getListObject().forEach(System.out::println);
         System.out.println("Total: " + management.getListObject().size());
     }
