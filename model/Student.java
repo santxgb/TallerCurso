@@ -4,7 +4,7 @@ public class Student extends Person{
     private double average;
     public Student() {
     }
-    public Student(int id, String name) {
+    public Student(String id, String name, String code, int semester, double average) {
         super(id, name);
         this.code = code;
         this.semester = semester;
@@ -30,8 +30,10 @@ public class Student extends Person{
     }
     @Override
     public String toString() {
-        return "Student [code=" + code + ", semester=" + semester + ", average=" + average + "]";
+        return "Student [id=" + id + ", code=" + code + ", name=" + name + ", semester=" + semester + ", average="
+                + average + "]";
     }
+    
     
     
 }

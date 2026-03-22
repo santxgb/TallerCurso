@@ -2,12 +2,9 @@ public class Teacher extends Person{
     private String email;
     private String lastName;
     private String speciality;
-    public Teacher(String email, String lastName, String speciality) {
-        this.email = email;
-        this.lastName = lastName;
-        this.speciality = speciality;
+    public Teacher() {
     }
-    public Teacher(int id, String name, String email, String lastName, String speciality) {
+    public Teacher(String id, String name, String email, String lastName, String speciality) {
         super(id, name);
         this.email = email;
         this.lastName = lastName;
