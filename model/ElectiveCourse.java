@@ -4,7 +4,10 @@ public class ElectiveCourse extends Course{
     private String approvalDate;
     private boolean isOpen;
     private String department;
-    public ElectiveCourse(int id, String name, String code, int credits, String modality, String description, String area, int minCreditsRequired, String approvalDate, boolean isOpen, String department) {
+    public ElectiveCourse(){
+        
+    }
+    public ElectiveCourse(String id, String name, String code, int credits, String modality, String description, String area, int minCreditsRequired, String approvalDate, boolean isOpen, String department) {
         super(id, name, code, credits, modality, description);
         this.area = area;
         this.minCreditsRequired = minCreditsRequired;

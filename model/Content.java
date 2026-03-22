@@ -1,20 +1,22 @@
-public class Content{
-    private int id;
+public class Content extends BaseClass{
     private String title;
     private String description;
     private ContentType type;
     private int durationHours;
-    public Content(int id, String title, String description, ContentType type, int durationHours) {
+    public Content(){
+
+    }
+    public Content(String id, String title, String description, ContentType type, int durationHours) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.type = type;
         this.durationHours = durationHours;
     }
-    public int getId() {
+    public String getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getTitle() {
