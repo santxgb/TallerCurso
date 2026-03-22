@@ -1,6 +1,5 @@
 import java.util.ArrayList;
-public class Course{
-    protected int id;
+public class Course extends BaseClass{
     protected String name;
     protected String code;
     protected int credits;
@@ -8,7 +7,10 @@ public class Course{
     protected String description;
     protected ArrayList<Student> students;
     protected ArrayList<Teacher> teachers;
-    public Course(int id, String name, String code, int credits, String modality, String description) {
+    public Course(){
+
+    }
+    public Course(String id, String name, String code, int credits, String modality, String description) {
         this.id = id;
         this.name = name;
         this.code = code;
@@ -18,10 +20,10 @@ public class Course{
         this.students = new ArrayList<>();
         this.teachers = new ArrayList<>();
     }
-    public int getId() {
+    public String getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getName() {
@@ -53,6 +55,13 @@ public class Course{
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+ 
+    public ArrayList<Teacher> getTeachers() {
+        return teachers;
     }
     @Override
     public String toString() {
