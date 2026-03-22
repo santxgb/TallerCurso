@@ -1,27 +1,14 @@
-public class Student {
-    private int id;
-    private String name;
+public class Student extends Person{
     private String code;
     private int semester;
     private double average;
-    public Student(int id, String name, String code, int semester, double average) {
-        this.id = id;
-        this.name = name;
+    public Student() {
+    }
+    public Student(int id, String name) {
+        super(id, name);
         this.code = code;
         this.semester = semester;
         this.average = average;
-    }
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
     }
     public String getCode() {
         return code;
@@ -43,8 +30,8 @@ public class Student {
     }
     @Override
     public String toString() {
-        return "Student [id=" + id + ", name=" + name + ", code=" + code + ", semester=" + semester + ", average="
-                + average + "]";
+        return "Student [code=" + code + ", semester=" + semester + ", average=" + average + "]";
     }
+    
     
 }

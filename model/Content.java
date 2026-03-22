@@ -1,13 +1,13 @@
-public class Content {
+public class Content{
     private int id;
     private String title;
-    private int week;
+    private String description;
     private String type;
     private int durationHours;
-    public Content(int id, String title, int week, String type, int durationHours) {
+    public Content(int id, String title, String description, String type, int durationHours) {
         this.id = id;
         this.title = title;
-        this.week = week;
+        this.description = description;
         this.type = type;
         this.durationHours = durationHours;
     }
@@ -23,11 +23,11 @@ public class Content {
     public void setTitle(String title) {
         this.title = title;
     }
-    public int getWeek() {
-        return week;
+    public String getDescription() {
+        return description;
     }
-    public void setWeek(int week) {
-        this.week = week;
+    public void setDescription(String description) {
+        this.description = description;
     }
     public String getType() {
         return type;
@@ -43,8 +43,9 @@ public class Content {
     }
     @Override
     public String toString() {
-        return "Content [id=" + id + ", title=" + title + ", week=" + week + ", type=" + type + ", durationHours="
-                + durationHours + "]";
+        return "Content [id=" + id + ", title=" + title + ", description=" + description + ", type=" + type
+                + ", durationHours=" + durationHours + "]";
     }
+
     
 }

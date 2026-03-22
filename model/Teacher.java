@@ -1,27 +1,17 @@
-public class Teacher{
-    private int id;
-    private String name;
+public class Teacher extends Person{
     private String email;
     private String lastName;
     private String speciality;
-    public Teacher(int id, String name, String email, String lastName, String speciality) {
-        this.id = id;
-        this.name = name;
+    public Teacher(String email, String lastName, String speciality) {
         this.email = email;
         this.lastName = lastName;
         this.speciality = speciality;
     }
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
+    public Teacher(int id, String name, String email, String lastName, String speciality) {
+        super(id, name);
+        this.email = email;
+        this.lastName = lastName;
+        this.speciality = speciality;
     }
     public String getEmail() {
         return email;
@@ -43,8 +33,7 @@ public class Teacher{
     }
     @Override
     public String toString() {
-        return "Teacher [id=" + id + ", name=" + name + ", email=" + email + ", lastName=" + lastName + ", speciality="
-                + speciality + "]";
+        return "Teacher [email=" + email + ", lastName=" + lastName + ", speciality=" + speciality + "]";
     }
     
 }

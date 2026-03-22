@@ -1,24 +1,23 @@
 import java.util.ArrayList;
-
-public class Course {
-    private int id;
-    private String name;
-    private String code;
-    private int credits;
-    private String modality;
-    private String description;
-    private ArrayList<Content> contents;
-    private ArrayList<Student> students;
+public class Course{
+    protected int id;
+    protected String name;
+    protected String code;
+    protected int credits;
+    protected String modality;
+    protected String description;
+    protected ArrayList<Student> students;
+    protected ArrayList<Teacher> teachers;
     public Course(int id, String name, String code, int credits, String modality, String description) {
-    this.id = id;
-    this.name = name;
-    this.code = code;
-    this.credits = credits;
-    this.modality = modality;
-    this.description = description;
-    this.contents = new ArrayList<>();
-    this.students = new ArrayList<>();
-}
+        this.id = id;
+        this.name = name;
+        this.code = code;
+        this.credits = credits;
+        this.modality = modality;
+        this.description = description;
+        this.students = new ArrayList<>();
+        this.teachers = new ArrayList<>();
+    }
     public int getId() {
         return id;
     }
@@ -55,22 +54,12 @@ public class Course {
     public void setDescription(String description) {
         this.description = description;
     }
-    public void addContent(Content content) {
-        contents.add(content);
-    }
-    public void addStudent(Student student){
-        students.add(student);
-    }
     @Override
     public String toString() {
         return "Course [id=" + id + ", name=" + name + ", code=" + code + ", credits=" + credits + ", modality="
-                + modality + ", description=" + description + ", contents=" + contents.size() + ", students=" + students.size() + "]";
+                + modality + ", description=" + description + "]";
     }
     
+
     
-
-
 }
-    
-    
-
