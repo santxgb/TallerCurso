@@ -22,7 +22,11 @@ public class StudentCrud {
             int op = Integer.parseInt(scanner.nextLine());
             switch (op) {
                 case 1 -> crear();
-            
+                case 2 -> buscar();
+                case 3 -> actualizar();
+                case 4 -> eliminar();
+                case 5 -> listar();
+                case 6 -> activo = false;
                 default -> System.out.println("Opción invalida");
             }
         } while (activo);
@@ -43,5 +47,21 @@ public class StudentCrud {
         if (management.insertObject(new Student(id, name, code, semester, average)))
             System.out.println("Estudiante creado exitosamente");
         else System.out.println("Ya existe un estudiante con ese ID.");
+    }
+    private void buscar(){
+        System.out.println("\n Ingrese el id que busca: ");
+        Student s = management.findObjectById(scanner.nextLine());
+        //Se utilizan los operadores ternarios (Se parecen al funcionamieto de los if y else)
+        System.out.println(s != null ? s : "No encontrado");
+    }
+    private void actualizar(){
+        System.out.println("\n Ingrese el id que necesita acualizar: ");
+        Student actual = management.findObjectById(scanner.nextLine());
+        if (actual == null){
+            System.out.println("Este id no está asignado a ningún estudiante");
+            return;
+        }
+        System.out.println("Este es el Id actual: " + actual);
+
     }
 }
