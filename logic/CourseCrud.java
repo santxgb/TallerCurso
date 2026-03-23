@@ -60,39 +60,40 @@ public class CourseCrud {
         System.out.println(c != null ? c : "No encontrado");
     }
     private void actualizar(){
-        System.out.println("\n Ingrese el id que necesita acualizar: ");
-        Course actual = management.findObjectById(scanner.nextLine());
-        if (actual == null){
-            System.out.println("Este id no está asignado a ningún Curso");
-            return;
-        }
-        System.out.println("Este es el Curso actual: " + actual);
-        System.out.println("En dado caso de que no desee cambiar el dato del Curso presiona la tecla ENTER");
-        System.out.println("Nombre a cambiar [ " + actual.getName() + " ]: ");
-        String name = scanner.nextLine();
-        if (name.isBlank()) name = actual.getName();
-
-        System.out.println("Código a cambiar [ " + actual.getCode() + " ]: ");
-        String code = scanner.nextLine();
-        if (code.isBlank()) code = actual.getCode();
-
-        System.out.println("Creditos a cambiar [ " + actual.getCredits() + " ]: ");
-        String credits = scanner.nextLine();
-        int creditos = credits.isBlank() ? actual.getCredits() : Integer.parseInt(credits);
-
-        System.out.println("Modalidad a cambiar [ " + actual.getModality() + " ]: ");
-        String modality = scanner.nextLine();
-        if (modality.isBlank()) modality = actual.getModality();
-
-        System.out.println("Descripción a cambiar [ " + actual.getDescription() + " ]: ");
-        String description = scanner.nextLine();
-        if (description.isBlank()) description = actual.getDescription();
-
-        if(management.updateObject(new Course(actual.getId(), name, code, creditos, modality, description)))
-            System.out.println("Actualizado exitosamente");
-        else 
-            System.out.println("No se pudo actualizar el registro del Curso");
+    System.out.println("\n Ingrese el id que necesita actualizar: ");
+    Course actual = management.findObjectById(scanner.nextLine());
+    if (actual == null){
+        System.out.println("Este id no está asignado a ningún Curso");
+        return;
     }
+
+    System.out.println("Este es el Curso actual: " + actual);
+    System.out.println("Presiona ENTER si no deseas cambiar el dato.");
+
+    System.out.println("Nombre a cambiar [ " + actual.getName() + " ]: ");
+    String name = scanner.nextLine();
+    if (!name.isBlank()) actual.setName(name);  // ← solo cambia si el usuario escribió algo
+
+    System.out.println("Código a cambiar [ " + actual.getCode() + " ]: ");
+    String code = scanner.nextLine();
+    if (!code.isBlank()) actual.setCode(code);
+
+    System.out.println("Créditos a cambiar [ " + actual.getCredits() + " ]: ");
+    String credits = scanner.nextLine();
+    if (!credits.isBlank()) actual.setCredits(Integer.parseInt(credits));
+
+    System.out.println("Modalidad a cambiar [ " + actual.getModality() + " ]: ");
+    String modality = scanner.nextLine();
+    if (!modality.isBlank()) actual.setModality(modality);
+
+    System.out.println("Descripción a cambiar [ " + actual.getDescription() + " ]: ");
+    String description = scanner.nextLine();
+    if (!description.isBlank()) actual.setDescription(description);
+    if (management.updateObject(actual))
+        System.out.println("Actualizado exitosamente");
+    else
+        System.out.println("No se pudo actualizar el registro del Curso");
+}
     private void eliminar(){
         System.out.println("\n Id a eliminar: ");
         System.out.println(management.deleteObjetct(scanner.nextLine()) ? "Curso Eliminado exitosamente" : "No se encontró el Curso a eliminar");

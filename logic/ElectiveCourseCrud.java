@@ -74,50 +74,51 @@ public class ElectiveCourseCrud {
         System.out.println("Este id no está asignado a ningún Curso Electivo");
         return;
     }
+
     System.out.println("Este es el Curso Electivo actual: " + actual);
     System.out.println("Presiona ENTER si no deseas cambiar el dato.");
 
     System.out.println("Nombre a cambiar [ " + actual.getName() + " ]: ");
     String nombre = scanner.nextLine();
-    if (nombre.isBlank()) nombre = actual.getName();
+    if (!nombre.isBlank()) actual.setName(nombre);
 
     System.out.println("Código a cambiar [ " + actual.getCode() + " ]: ");
     String code = scanner.nextLine();
-    if (code.isBlank()) code = actual.getCode();
+    if (!code.isBlank()) actual.setCode(code);
 
     System.out.println("Créditos a cambiar [ " + actual.getCredits() + " ]: ");
     String cred = scanner.nextLine();
-    int credits = cred.isBlank() ? actual.getCredits() : Integer.parseInt(cred);
+    if (!cred.isBlank()) actual.setCredits(Integer.parseInt(cred));
 
     System.out.println("Modalidad a cambiar [ " + actual.getModality() + " ]: ");
     String modality = scanner.nextLine();
-    if (modality.isBlank()) modality = actual.getModality();
+    if (!modality.isBlank()) actual.setModality(modality);
 
     System.out.println("Descripción a cambiar [ " + actual.getDescription() + " ]: ");
     String description = scanner.nextLine();
-    if (description.isBlank()) description = actual.getDescription();
+    if (!description.isBlank()) actual.setDescription(description);
 
     System.out.println("Área a cambiar [ " + actual.getArea() + " ]: ");
     String area = scanner.nextLine();
-    if (area.isBlank()) area = actual.getArea();
+    if (!area.isBlank()) actual.setArea(area);
 
     System.out.println("Créditos mínimos a cambiar [ " + actual.getMinCreditsRequired() + " ]: ");
     String minCred = scanner.nextLine();
-    int minCredits = minCred.isBlank() ? actual.getMinCreditsRequired() : Integer.parseInt(minCred);
+    if (!minCred.isBlank()) actual.setMinCreditsRequired(Integer.parseInt(minCred));
 
     System.out.println("Fecha de aprobación a cambiar [ " + actual.getApprovalDate() + " ]: ");
     String fechaAprov = scanner.nextLine();
-    if (fechaAprov.isBlank()) fechaAprov = actual.getApprovalDate();
+    if (!fechaAprov.isBlank()) actual.setApprovalDate(fechaAprov);
 
     System.out.println("¿Está abierto? (true/false) [ " + actual.isOpen() + " ]: ");
     String abierto = scanner.nextLine();
-    boolean isOpen = abierto.isBlank() ? actual.isOpen() : Boolean.parseBoolean(abierto);
+    if (!abierto.isBlank()) actual.setOpen(Boolean.parseBoolean(abierto));
 
     System.out.println("Departamento a cambiar [ " + actual.getDepartment() + " ]: ");
     String department = scanner.nextLine();
-    if (department.isBlank()) department = actual.getDepartment();
+    if (!department.isBlank()) actual.setDepartment(department);
 
-    if(management.updateObject(new ElectiveCourse(actual.getId(), nombre, code, credits, modality, description, area, minCredits, fechaAprov, isOpen, department)))
+    if (management.updateObject(actual))
         System.out.println("Actualizado exitosamente");
     else
         System.out.println("No se pudo actualizar el Curso Electivo");
