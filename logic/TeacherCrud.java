@@ -69,13 +69,13 @@ public class TeacherCrud {
 
         System.out.println("apellido a cambiar [ " + actual.getLastName() + " ]: ");
         String lastName = scanner.nextLine();
-        if (lastName.isBlank()) lastName = actual.getName();
+        if (lastName.isBlank()) lastName = actual.getLastName();
 
-        System.out.println("Nombre a cambiar [ " + actual.getEmail() + " ]: ");
+        System.out.println("Email a cambiar [ " + actual.getEmail() + " ]: ");
         String email = scanner.nextLine();
         if (email.isBlank()) email = actual.getEmail();
 
-        System.out.println("Nombre a cambiar [ " + actual.getSpeciality() + " ]: ");
+        System.out.println("Especialidad a cambiar [ " + actual.getSpeciality() + " ]: ");
         String speciality = scanner.nextLine();
         if (speciality.isBlank()) speciality = actual.getSpeciality();
 

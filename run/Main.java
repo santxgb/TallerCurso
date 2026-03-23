@@ -5,6 +5,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         StudentCrud studentCrud = new StudentCrud(scanner);
+        TeacherCrud teacherCrud = new TeacherCrud(scanner);
+        CourseCrud courseCrud = new CourseCrud(scanner);
         String menuPrincipal = """
             ==================================
             ||      SISTEMA DE CURSOS       ||
@@ -26,6 +28,8 @@ public class Main {
 
             switch (option) {
                 case 1-> studentCrud.menu();
+                case 2 -> teacherCrud.menu();
+                case 3 -> courseCrud.menu();
                 default -> System.out.println("Opción no válida.");
             }
 
