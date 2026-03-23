@@ -47,7 +47,7 @@ public class ElectiveCourse extends Course{
     }
     @Override
     public String toString() {
-        return "ElectiveCourse [area=" + area + ", minCreditsRequiredM=" + minCreditsRequired + ", approvalDate="
+        return "ElectiveCourse [area=" + area + ", minCreditsRequired=" + minCreditsRequired + ", approvalDate="
                 + approvalDate + ", isOpen=" + isOpen + ", department=" + department + "]";
     }
     
