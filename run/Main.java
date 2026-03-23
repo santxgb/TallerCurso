@@ -8,6 +8,7 @@ public class Main {
         TeacherCrud teacherCrud = new TeacherCrud(scanner);
         CourseCrud courseCrud = new CourseCrud(scanner);
         ElectiveCourseCrud electiveCourseCrud = new ElectiveCourseCrud(scanner);
+        ContentCrud contentCrud = new ContentCrud(scanner);
         String menuPrincipal = """
             ==================================
             ||      SISTEMA DE CURSOS       ||
@@ -32,6 +33,8 @@ public class Main {
                 case 2 -> teacherCrud.menu();
                 case 3 -> courseCrud.menu();
                 case 4 -> electiveCourseCrud.menu();
+                case 5 -> contentCrud.menu();
+                case 6 -> menuWorking = false;
                 default -> System.out.println("Opción no válida.");
             }
 
