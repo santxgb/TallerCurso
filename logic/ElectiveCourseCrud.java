@@ -126,7 +126,7 @@ public class ElectiveCourseCrud {
     
     private void eliminar(){
         System.out.println("\n Id a eliminar: ");
-        System.out.println(management.deleteObjetct(scanner.nextLine()) ? "Electiva de curso Eliminado exitosamente" : "No se encontró el Electiva de curso a eliminar");
+        System.out.println(management.deleteObject(scanner.nextLine()) ? "Electiva de curso Eliminado exitosamente" : "No se encontró el Electiva de curso a eliminar");
     }
     private void listar() {
         if (management.getListObject().isEmpty()) { 
