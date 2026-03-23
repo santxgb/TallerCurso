@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class ElectiveCourseCrud {
     private Management<ElectiveCourse> management = new Management<>();
     private Scanner scanner;
@@ -7,7 +8,7 @@ public class ElectiveCourseCrud {
     }
     public void menu(){
         String menu = """
-                ----CRUD ESTUDIANTES----
+                ----CRUD Electiva de cursoS----
                 [1] Crear 
                 [2] Buscar por ID
                 [3] Actualizar
@@ -32,7 +33,7 @@ public class ElectiveCourseCrud {
         } while (activo);
     }
     private void crear(){
-        System.out.println("\n---Crear Estudiante ----");
+        System.out.println("\n---Crear Electiva de curso ----");
         System.out.println("Id: ");
         String id = scanner.nextLine();
         System.out.println("Nombre: ");
@@ -67,38 +68,64 @@ public class ElectiveCourseCrud {
         System.out.println(e != null ? e : "No encontrado");
     }
     private void actualizar(){
-        System.out.println("\n Ingrese el id que necesita acualizar: ");
-        Student actual = management.findObjectById(scanner.nextLine());
-        if (actual == null){
-            System.out.println("Este id no está asignado a ningún estudiante");
-            return;
-        }
-        System.out.println("Este es el estudiante actual: " + actual);
-        System.out.println("En dado caso de que no desee cambiar el dato del estudiante presiona la tecla ENTER");
-        System.out.println("Nombre a cambiar [ " + actual.getName() + " ]: ");
-        String nombre = scanner.nextLine();
-        if (nombre.isBlank()) nombre = actual.getName();
-
-        System.out.println("Código a cambiar [" + actual.getCode() + " ]: ");
-        String code = scanner.nextLine();
-        if (code.isBlank()) code = actual.getCode();
-
-        System.out.println("Semestre a cambiar [" + actual.getSemester() + " ]: ");
-        String semester = scanner.nextLine();
-        int sem = semester.isBlank() ? actual.getSemester() : Integer.parseInt(semester);
-
-        System.out.println("Promedio a cambiar [" + actual.getAverage() + " ]: ");
-        String avg = scanner.nextLine();
-        double average = avg.isBlank() ? actual.getAverage() : Double.parseDouble(avg);
-
-        if(management.updateObject(new Student(actual.getId(), nombre, code, sem, average)))
-            System.out.println("Actualizado exitosamente");
-        else 
-            System.out.println("No se pudo actualizar el registro del estudiante");
+    System.out.println("\n Ingrese el id que necesita actualizar: ");
+    ElectiveCourse actual = management.findObjectById(scanner.nextLine());
+    if (actual == null){
+        System.out.println("Este id no está asignado a ningún Curso Electivo");
+        return;
     }
+    System.out.println("Este es el Curso Electivo actual: " + actual);
+    System.out.println("Presiona ENTER si no deseas cambiar el dato.");
+
+    System.out.println("Nombre a cambiar [ " + actual.getName() + " ]: ");
+    String nombre = scanner.nextLine();
+    if (nombre.isBlank()) nombre = actual.getName();
+
+    System.out.println("Código a cambiar [ " + actual.getCode() + " ]: ");
+    String code = scanner.nextLine();
+    if (code.isBlank()) code = actual.getCode();
+
+    System.out.println("Créditos a cambiar [ " + actual.getCredits() + " ]: ");
+    String cred = scanner.nextLine();
+    int credits = cred.isBlank() ? actual.getCredits() : Integer.parseInt(cred);
+
+    System.out.println("Modalidad a cambiar [ " + actual.getModality() + " ]: ");
+    String modality = scanner.nextLine();
+    if (modality.isBlank()) modality = actual.getModality();
+
+    System.out.println("Descripción a cambiar [ " + actual.getDescription() + " ]: ");
+    String description = scanner.nextLine();
+    if (description.isBlank()) description = actual.getDescription();
+
+    System.out.println("Área a cambiar [ " + actual.getArea() + " ]: ");
+    String area = scanner.nextLine();
+    if (area.isBlank()) area = actual.getArea();
+
+    System.out.println("Créditos mínimos a cambiar [ " + actual.getMinCreditsRequired() + " ]: ");
+    String minCred = scanner.nextLine();
+    int minCredits = minCred.isBlank() ? actual.getMinCreditsRequired() : Integer.parseInt(minCred);
+
+    System.out.println("Fecha de aprobación a cambiar [ " + actual.getApprovalDate() + " ]: ");
+    String fechaAprov = scanner.nextLine();
+    if (fechaAprov.isBlank()) fechaAprov = actual.getApprovalDate();
+
+    System.out.println("¿Está abierto? (true/false) [ " + actual.isOpen() + " ]: ");
+    String abierto = scanner.nextLine();
+    boolean isOpen = abierto.isBlank() ? actual.isOpen() : Boolean.parseBoolean(abierto);
+
+    System.out.println("Departamento a cambiar [ " + actual.getDepartment() + " ]: ");
+    String department = scanner.nextLine();
+    if (department.isBlank()) department = actual.getDepartment();
+
+    if(management.updateObject(new ElectiveCourse(actual.getId(), nombre, code, credits, modality, description, area, minCredits, fechaAprov, isOpen, department)))
+        System.out.println("Actualizado exitosamente");
+    else
+        System.out.println("No se pudo actualizar el Curso Electivo");
+}
+    
     private void eliminar(){
         System.out.println("\n Id a eliminar: ");
-        System.out.println(management.deleteObjetct(scanner.nextLine()) ? "Estudiante Eliminado exitosamente" : "No se encontró el estudiante a eliminar");
+        System.out.println(management.deleteObjetct(scanner.nextLine()) ? "Electiva de curso Eliminado exitosamente" : "No se encontró el Electiva de curso a eliminar");
     }
     private void listar() {
         if (management.getListObject().isEmpty()) { 

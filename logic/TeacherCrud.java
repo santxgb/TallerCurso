@@ -44,7 +44,7 @@ public class TeacherCrud {
         System.out.println("Especialidad: ");
         String speciality = scanner.nextLine();
 
-        if (management.insertObject(new Teacher(id, name, lastName, email, speciality)))
+        if (management.insertObject(new Teacher(id, name, email, lastName,  speciality)))
             System.out.println("Profesor creado exitosamente");
         else System.out.println("Ya existe un Profesor con ese ID.");
     }

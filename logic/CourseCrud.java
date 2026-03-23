@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 public class CourseCrud {
     private Management<Course> management = new Management<>();
