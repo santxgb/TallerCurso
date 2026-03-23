@@ -96,7 +96,7 @@ public class CourseCrud {
 }
     private void eliminar(){
         System.out.println("\n Id a eliminar: ");
-        System.out.println(management.deleteObjetct(scanner.nextLine()) ? "Curso Eliminado exitosamente" : "No se encontró el Curso a eliminar");
+        System.out.println(management.deleteObject(scanner.nextLine()) ? "Curso Eliminado exitosamente" : "No se encontró el Curso a eliminar");
     }
     private void listar() {
         if (management.getListObject().isEmpty()) { 

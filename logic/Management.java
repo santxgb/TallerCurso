@@ -50,7 +50,7 @@ public class Management<T extends BaseClass> {
     }
     //Elimina el objeto con el id que ingrese el usuario
     //Retrona true si se eliminó el objeto y false si el objeto no existía
-    public boolean deleteObjetct(String id){
+    public boolean deleteObject(String id){
         int index = this.findIndexById(id);
         if (index == -1){
             return false;

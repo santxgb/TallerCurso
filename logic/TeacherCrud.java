@@ -86,7 +86,7 @@ public class TeacherCrud {
     }
     private void eliminar(){
         System.out.println("\n Id a eliminar: ");
-        System.out.println(management.deleteObjetct(scanner.nextLine()) ? "Profesor Eliminado exitosamente" : "No se encontró el Profesor a eliminar");
+        System.out.println(management.deleteObject(scanner.nextLine()) ? "Profesor Eliminado exitosamente" : "No se encontró el Profesor a eliminar");
     }
     private void listar() {
         if (management.getListObject().isEmpty()) { 

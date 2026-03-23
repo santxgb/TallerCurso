@@ -33,7 +33,7 @@ public class ContentCrud {
         } while (activo);
     }
     private void crear(){
-        System.out.println("\n---Crear Contenido de Contenido ----");
+        System.out.println("\n---Crear Contenido----");
         System.out.println("Id: ");
         String id = scanner.nextLine();
         System.out.println("Titulo: ");
@@ -96,11 +96,11 @@ public class ContentCrud {
         String description = scanner.nextLine();
         if (description.isBlank()) description = actual.getDescription();
 
-        System.out.println("Creditos a cambiar [ " + actual.getDurationHours() + " ]: ");
+        System.out.println("Duración en horas a cambiar [ " + actual.getDurationHours() + " ]: ");
         String durHours = scanner.nextLine();
         int durationHours = durHours.isBlank() ? actual.getDurationHours() : Integer.parseInt(durHours);
 
-        System.out.println("Modalidad a cambiar [ " + actual.getType() + " ]: ");
+        System.out.println("Tipo de contenido a cambiar [ " + actual.getType() + " ]: ");
         System.out.println("""
                     ========================
                     ||  RECUERDE EL ORDEN ||
@@ -134,7 +134,7 @@ public class ContentCrud {
     }
     private void eliminar(){
         System.out.println("\n Id a eliminar: ");
-        System.out.println(management.deleteObjetct(scanner.nextLine()) ? "Contenido Eliminado exitosamente" : "No se encontró el Contenido a eliminar");
+        System.out.println(management.deleteObject(scanner.nextLine()) ? "Contenido Eliminado exitosamente" : "No se encontró el Contenido a eliminar");
     }
     private void listar() {
         if (management.getListObject().isEmpty()) { 
