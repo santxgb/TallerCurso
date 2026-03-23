@@ -8,7 +8,7 @@ public class CourseCrud {
     }
     public void menu(){
         String menu = """
-                ----CRUD Cursoes----
+                ----CRUD Curso----
                 [1] Crear 
                 [2] Buscar por ID
                 [3] Actualizar
